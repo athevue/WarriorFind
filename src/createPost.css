@@ -1,0 +1,71 @@
+#container {
+    width: 100vw;
+    margin-top: 64px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 20vw;
+}
+
+#imagesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+p{
+    margin: 0;
+    color: gray;
+    font-size: small;
+}
+
+h4#error {
+    color: red;
+}
+
+h4#success {
+    color: rgb(52, 214, 52);
+    font-size: xx-large;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+#images-button, button {
+    all: unset;
+    color: white;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: medium;
+}
+
+button[type="submit"] {
+    background-color: #333;
+}
+
+textarea {
+    resize: none;
+    height: 10vh;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+}

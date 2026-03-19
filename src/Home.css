@@ -19,7 +19,8 @@
   padding: 40px 20px;
 }
 
-.home-content {
+/* this style used in the feed screen as well */
+.home-content, .post {
   position: relative;
   background: #efe6d5;
   padding: 50px 50px 40px;

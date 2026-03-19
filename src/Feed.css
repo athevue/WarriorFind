@@ -1,0 +1,28 @@
+.post-container {
+    width: 100vw;
+    margin: 0 5vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post {
+    max-width: 350px;
+    min-width: 350px;
+    margin: 10px;
+}
+
+.item-name {
+    font-size: large;
+    margin: 0px;
+}
+
+.location {
+    color: black;
+    font-weight: bold;
+}
+
+.caption {
+    color: rgb(85, 85, 85)
+}
