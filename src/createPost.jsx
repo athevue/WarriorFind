@@ -3,12 +3,16 @@ import { useState } from 'react';
 import { db, storage } from './firebase' 
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function Post() {
+  const defaultButtonText = "Create Post!";
   const [images, setImages] = useState([]);
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("success");
-  const [buttonText, setButtonText] = useState("Create Post!")
+  const [buttonText, setButtonText] = useState(defaultButtonText);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
+  const feedbackPopupDuration = 1000; // miliseconds for feedback popup to show
 
   const handleImages = (e) => {
     const images = Array.from(e.target.files);
@@ -27,41 +31,57 @@ function Post() {
     const imageUrls = [];
 
     try {
-      for (const image of images) {
-        //define and get file path
-        const imagePath = `images/${Date.now()}-${image.name}`;
-        const imageRef = ref(storage, imagePath);
+      // for (const image of images) {
+      //   //define and get file path
+      //   const imagePath = `images/${Date.now()}-${image.name}`;
+      //   const imageRef = ref(storage, imagePath);
 
-        // upload image
-        await uploadBytes(imageRef, image);
+      //   // upload image
+      //   await uploadBytes(imageRef, image);
 
-        // get URL
-        const downloadUrl = await getDownloadURL(imageRef);
-        imageUrls.push(downloadUrl);
-      };
+      //   // get URL
+      //   const downloadUrl = await getDownloadURL(imageRef);
+      //   imageUrls.push(downloadUrl);
+      // };
 
-      await addDoc(collection(db, "posts"), {
-        item: formData.get("item"),
-        caption: formData.get("caption"),
-        location: formData.get("location"),
-        user_id: user,
-        image_urls: imageUrls,
-        created_at: Date.now(),
-      });
+      // await addDoc(collection(db, "posts"), {
+      //   item: formData.get("item"),
+      //   caption: formData.get("caption"),
+      //   location: formData.get("location"),
+      //   user_id: user,
+      //   image_urls: imageUrls,
+      //   created_at: Date.now(),
+      // });
 
       //display success message
-      setMessage("Post created!");
-      setMessageType("success");
-
+      setFeedbackMessage("Post created successfully!")
+      setShowFeedbackPopup(true);
       setTimeout(() => {
-        window.location.reload();
-      }, 500);
+        setShowFeedbackPopup(false);
+      }, feedbackPopupDuration);
 
     } catch(err) {
-      console.log(err.message)
-      setMessage(err.message);
+      console.log(err.message);
+
+      //display error message
+      setFeedbackMessage("Error uplaoding post.")
+      setShowFeedbackPopup(true);
+      setTimeout(() => {
+        setShowFeedbackPopup(false);
+      }, feedbackPopupDuration);
+
       return;
     }
+  }
+
+  const resetForm = () => {
+    setImages([]);
+    setButtonText(defaultButtonText);
+    setFeedbackMessage("");
+
+    document.getElementsByName("item")[0].value = "";
+    document.getElementsByName("location")[0].value = "";
+    document.getElementsByName("caption")[0].value = "";
   }
 
   const user = 1;
@@ -97,7 +117,9 @@ function Post() {
         <button type='submit'>{buttonText}</button>
       </form>
 
-      <h4 id={messageType}>{message}</h4>
+      <Popup open={showFeedbackPopup} className='create-post-feedback-popup' onClose={resetForm} >
+        <h4>{feedbackMessage}</h4>
+      </Popup>
     </div>
   )
 }

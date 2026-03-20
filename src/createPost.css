@@ -69,3 +69,17 @@ textarea {
     border-radius: 10px;
     padding: 10px;
 }
+
+@keyframes fadePopup {
+    0% {opacity: 0;}
+    15% {opacity: 100;}
+    85% {opacity: 100;}
+    100% {opacity: 0;}
+}
+
+.create-post-feedback-popup-content {
+    border-radius: 10px;
+    width: fit-content;
+    text-align: center;
+    animation: fadePopup 1s;
+}

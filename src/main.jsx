@@ -9,6 +9,6 @@ import Profile from './Profile';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Navbar />
-    <Profile />
+    <Home />
   </StrictMode>,
 )
