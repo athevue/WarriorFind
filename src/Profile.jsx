@@ -6,6 +6,7 @@ import './Feed.css'
 import './Home.css'
 import ImageCarousel from './components/imageCarousel';
 import corkboard from "./assets/cork-board.jpg.avif";
+import EditPostPopup from './components/EditPostPopup';
 
 function Profile() {
     const [user, setUser] = useState();
@@ -70,9 +71,9 @@ function Profile() {
                 return (
                     <div className="post" key={index}>
                         <div className="pin"></div>
-                        <div className='post-edit-button-container'>
+                        <div className='profile-button-container'>
                             <button className='post-edit-button' onClick={() => deletePost(postObj.id)}>Delete</button>
-                            <button className='post-edit-button' onClick={() => editPost(postObj.id)}>Edit</button>
+                            <EditPostPopup postObj={postObj} />
                         </div>
                         <h1 className='item-name'>{post.item}</h1>
 

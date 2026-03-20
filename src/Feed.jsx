@@ -35,8 +35,8 @@ function Feed() {
         style={{ backgroundImage: `url(${corkboard})` }}
     >
         <div className='post-container'>
-            {posts.map(post => (
-                <div className="post">
+            {posts.map((post, index) => (
+                <div className="post" key={index}>
                     <div className="pin"></div>
                     <h1 className='item-name'>{post.item}</h1>
 

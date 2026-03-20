@@ -1,0 +1,99 @@
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}
+
+.edit-post-popup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.edit-post-popup-content{
+    border-radius: 10px;
+}
+
+.edit-post-popup-header {
+    display: flex;
+}
+
+.edit-post-popup-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-post-popup-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.edit-post-popup-image-block {
+    margin: 0 5px;
+}
+
+.edit-post-popup-delete-image-button {
+    position: absolute;
+    z-index: 10;
+    margin: 3px
+}
+
+.edit-post-popup-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.edit-post-popup-input {
+    padding: 15px;
+    border-radius: 10px;
+    border-color: gray;
+    border-style: solid;
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+.edit-post-popup-label {
+    font-size: small;
+    margin-left: 15px;
+    margin-bottom: -10px;
+    padding: 0 3px;
+    z-index: 10;
+    background-color: white;
+    width: fit-content;
+}
+
+.edit-post-popup-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-post-popup-button {
+    width: 70px;
+    height: 30px;
+    margin-right: 0;
+    background-color: #333333ac;
+    border-style: none;
+    border-radius: 10px;
+    font-size: small;
+    transition: background-color 0.3s;
+}
+
+.edit-post-popup-button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.edit-post-popup-feedback-content {
+    text-align: center;
+    width: fit-content;
+    border-radius: 10px;
+    animation: fadePopup 2s; /* the duration should match the duration of the feedback popup */
+}
+
+@keyframes fadePopup {
+    0% {opacity: 0;}
+    20% {opacity: 100;}
+    80% {opacity: 100;}
+    100% {opacity: 0;}
+}

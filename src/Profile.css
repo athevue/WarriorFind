@@ -16,23 +16,25 @@
     font-size: larger;
 }
 
-.post-edit-button-container {
+.profile-button-container {
     display: flex;
     flex-direction: row;
     margin: -25px;
     justify-content: space-between;
 }
 
-.post-edit-button {
+.post-edit-button, .post-delete-button {
     padding: 5px;
     width: 50px;
     font-size: small;
     text-align: center;
     background-color: #3333338c;
     transition: background-color 0.2s;
+    border-style: none;
+    border-radius: 5px;
 }
 
-.post-edit-button:hover {
+.post-edit-button:hover, .post-delete-button:hover {
     background-color: #333;
+    color: white
 }
-
