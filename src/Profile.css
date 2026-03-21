@@ -13,3 +13,44 @@ li {
   padding: 8px;
   border-radius: 5px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap'); /* font-family: caveat */
+
+.profile-container {
+    padding: 64px;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name-container {
+    margin-top: 15px;
+    padding: 10px;
+    height: fit-content;
+    font-family: caveat;
+    font-size: larger;
+}
+
+.profile-button-container {
+    display: flex;
+    flex-direction: row;
+    margin: -25px;
+    justify-content: space-between;
+}
+
+.post-edit-button, .post-delete-button {
+    padding: 5px;
+    width: 50px;
+    font-size: small;
+    text-align: center;
+    background-color: #3333338c;
+    transition: background-color 0.2s;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.post-edit-button:hover, .post-delete-button:hover {
+    background-color: #333;
+    color: white
+}

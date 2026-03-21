@@ -5,6 +5,7 @@ img {
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
     position: relative;
+    border-radius: 10px;
 }
 
 img.fade {
@@ -18,23 +19,24 @@ img.fade {
     align-items: center;
 }
 
-button {
-    background-color: #3333338c;
-    transition: background-color 0.2s;
-}
-
-button:hover {
+.prev:hover, .next:hover {
     background-color: #333;
+    color: white
 }
 
 .prev, .next {
     height: 40px;
+    background-color: #3333338c;
+    transition: background-color 0.2s;
+    border-style: none;
+    border-radius: 5px;
+    margin: 0 5px;
 }
 
 .indicator {
     color: white;
     position: absolute;
-    bottom: 100px;
+    bottom: 120px;
     padding: 5px 10px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.546);
