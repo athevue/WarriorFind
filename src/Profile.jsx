@@ -39,10 +39,6 @@ function Profile() {
             console.log(err.message);
         }
     }
-    
-    const editPost = (postId) => {
-        //redirect 
-    }
 
     const deletePost = async (postId) => {
         await deleteDoc(doc(db, "posts", postId));
@@ -69,16 +65,16 @@ function Profile() {
             <div className="pin"></div>
             <h1 className='name'>{user.first_name} {user.last_name}</h1>
 
-            <p><strong>Points:</strong> {points}</p>
+            <p className='points'><strong>Points:</strong> {points}</p>
 
-            <h2>Badges</h2>
+            <h2 className='badges-title'>Badges</h2>
 
             {badges.length === 0 ? (
               <p>No badges yet.</p>
             ) : (
-              <ul>
+              <ul className='badges-list'>
                 {badges.map((badge, index) => (
-                  <li key={index}>{badge}</li>
+                  <li className='badge' key={index}>{badge}</li>
                 ))}
               </ul>
             )}

@@ -1,17 +1,16 @@
-h1 {
-  text-align: center;
-}
-
-ul {
+ul.badges-list {
   list-style: none;
   padding: 0;
 }
 
-li {
+li.badge {
   background: #f0f0f0;
   margin: 5px;
   padding: 8px;
   border-radius: 5px;
+  /* width: fit-content; */
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap'); /* font-family: caveat */
