@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f0f0f0;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+}
