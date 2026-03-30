@@ -46,9 +46,13 @@ function Profile() {
     }
 
     useEffect(() => {
-        getUser();
-        getPosts();
-        setLoading(false);
+        const loadProfile = async () => {
+            await getUser();
+            await getPosts();
+            setLoading(false);
+        };
+
+        loadProfile();
     }, []);
 
     if (loading || !user || !posts) 
