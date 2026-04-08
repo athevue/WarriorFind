@@ -30,7 +30,7 @@ function Profile() {
         try {
             const fetchedPosts = await getDocs(query(collection(db, "posts"), where("user_id", "==", userId)));
 
-            const postsArray = [];
+            let postsArray = [];
             fetchedPosts.forEach(post => {
                 postsArray.push(post);
             });
