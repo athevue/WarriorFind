@@ -25,11 +25,11 @@ export default function ItemCard({ item }) {
         {/* meta info */}
         <div className="item-meta">
           <div className="meta-row">
-            <MapPin size={14}/> <span>{item.location}</span>
+            <MapPin style={{ color: "red" }} size={14}/> <span>{item.location}</span>
           </div>
   
           <div className="meta-row">
-            <Tag size={14} /> <span>{item.category}</span>
+            <Tag style={{ color: "orange" }} size={14} /> <span>{item.category}</span>
           </div>
         </div>
   
