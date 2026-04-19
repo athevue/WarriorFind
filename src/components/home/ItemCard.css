@@ -1,0 +1,93 @@
+.item-card {
+    background: #ffff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.2s ease;
+  }
+  
+  .item-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* top row */
+  .item-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* badges */
+  .badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  
+  .badge.lost {
+    background: rgba(255, 99, 99, 0.15);
+    color: #d84a4a;
+  }
+  
+  .badge.found {
+    background: rgba(9, 63, 57, 0.15);
+    color: #093f39;
+  }
+  
+  /* date */
+  .date {
+    font-size: 0.75rem;
+    color: #666;
+  }
+  
+  /* title */
+  .item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  
+  /* description */
+  .item-desc {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.4;
+  }
+  
+  /* meta */
+  .item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #555;
+    padding-top: 8px;
+  }
+  
+  .meta-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  /* footer button */
+  .item-footer {
+    margin-top: 10px;
+  }
+  
+  .contact-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #093f39;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .contact-btn:hover {
+    text-decoration: underline;
+  }

@@ -17,7 +17,7 @@ export default function Features() {
       icon: Bell,
       title: "Stay Updated",
       desc: "Report items and help fellow Warriors reunite with their belongings.",
-    },
+    }
   ];
 
   return (
