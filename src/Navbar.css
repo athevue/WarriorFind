@@ -46,3 +46,45 @@
   font-weight: 500;
   font-size: 14px;
 }
+
+/* Hamburger menu for responsiveness */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #093f39;
+}
+
+/* Responsive hamburger menu */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-actions {
+    display: none; /* hide by default on mobile */
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    background: white;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-actions.active {
+    display: flex; /* show when toggled */
+  }
+}
