@@ -2,12 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 //import App from './App.jsx'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './Home'
 import Navbar from "./Navbar";
 import Profile from './Profile';
 import SignIn from './Signin';
 import SignUp from './Signup'; 
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import Browse from './Browse';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/profile" element={<Profile />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/browse" element={<Browse />} />
         </Routes>
     </BrowserRouter>
   </StrictMode>,
