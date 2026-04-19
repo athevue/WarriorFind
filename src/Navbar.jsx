@@ -9,13 +9,17 @@ export default function Navbar() {
       </div>
 
       <div className="nav-actions">
+        <Link to="/browse">
+          <button className="nav-text">Browse</button>
+        </Link>
         <Link to="/signin">
-          <button className="nav-signin">Sign In</button>
+          <button className="nav-text">Sign In</button>
         </Link>
 
         <Link to="/signup"> 
           <button className="nav-signup">Sign Up</button>
         </Link>
+        
       </div>
     </nav>
   );
