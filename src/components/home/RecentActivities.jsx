@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ItemCard from "./ItemCard";
 import "./RecentActivities.css";
 
@@ -52,7 +53,14 @@ export default function RecentActivities() {
 
   return (
     <section className="recent-section">
-      <h2>Recent Items</h2>
+        
+      <div className="recent-header">
+        <h2>Recent Items</h2>
+        <Link to="/Browse" className="view-all-btn">
+            View All →
+        </Link>
+      </div>
+
 
       <div className="recent-grid">
         {items.map((item) => (
