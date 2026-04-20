@@ -20,16 +20,24 @@ export default function Navbar() {
       </div>
 
       <div className={`nav-actions ${open ? "active" : ""}`}>
-        <Link to="/browse" onClick={() => setOpen(false)}>
-          <button className="nav-text">Browse</button>
+        <Link to="/" onClick={() => setOpen(false)}>
+          <button className="nav-text">Home</button>  
         </Link>
+
+        <Link to="/browse" onClick={() => setOpen(false)}>
+          <button className="nav-text">Browse Items</button>
+        </Link>
+
+        <Link to="/create-post" onClick={() => setOpen(false)}>
+          <button className="nav-text">Report Item</button>
+        </Link>
+
+        {/* <Link to="/signin" onClick={() => setOpen(false)}>
+          <button className="nav-text">Sign In</button>
+        </Link> */}
 
         <Link to="/signin" onClick={() => setOpen(false)}>
-          <button className="nav-text">Sign In</button>
-        </Link>
-
-        <Link to="/signup" onClick={() => setOpen(false)}>
-          <button className="nav-signup">Sign Up</button>
+          <button className="nav-signup">Sign In/Up</button>
         </Link>
       </div>
 

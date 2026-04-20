@@ -9,6 +9,8 @@ import Profile from './Profile';
 import SignIn from './Signin';
 import SignUp from './Signup'; 
 import Browse from './Browse';
+import Feed from './Feed';
+import Post from './createPost';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -20,6 +22,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/browse" element={<Browse />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/create-post" element={<Post />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
     </BrowserRouter>
   </StrictMode>,
