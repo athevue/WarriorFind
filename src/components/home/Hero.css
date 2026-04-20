@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 100px;
     color: #093f39;
   }
@@ -33,6 +33,7 @@ p{
     width: min(90%, 650px);
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    margin: auto;
   }
   
   .pin {
@@ -62,7 +63,6 @@ p{
   
 @media screen and (max-width: 768px) {
     .hero-section {
-        padding-top: 80px;
         align-items: center;
       }
     

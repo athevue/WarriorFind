@@ -1,43 +1,76 @@
-img {
-    min-width: 200px;
-    min-height: 200px;
-    object-fit: contain;
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    border-radius: 10px;
+    width: 100%;
 }
 
-img.fade {
+/* Wrap image + indicator together */
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Responsive image inside item card */
+.image-wrapper img {
+    width: 90%;
+    height: 200px;              /* adjust based on card size */
+    object-fit: cover;         /* keeps image nicely cropped */
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* fade effect */
+.fade {
     opacity: 0;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.prev:hover, .next:hover {
-    background-color: #333;
-    color: white
-}
-
-.prev, .next {
-    height: 40px;
-    background-color: #3333338c;
-    transition: background-color 0.2s;
-    border-style: none;
-    border-radius: 5px;
-    margin: 0 5px;
-}
-
-.indicator {
+/* arrows */
+.prev,
+.next {
+    height: 26px;
+    width: 26px;
+    background-color: rgba(51, 51, 51, 0.6);
+    transition: background-color 0.2s ease;
+    border: none;
+    border-radius: 6px;
+    margin: 0 6px;
+    cursor: pointer;
     color: white;
-    position: absolute;
-    bottom: 120px;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.546);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #333;
+}
+
+/* indicator UNDER image */
+.indicator {
+    margin-top: 6px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+}
+
+/* mobile responsiveness */
+@media (max-width: 600px) {
+    .image-wrapper img {
+        height: 180px;
+    }
+
+    .prev,
+    .next {
+        height: 20px;
+        width: 20px;
+        font-size: 16px;
+    }
 }

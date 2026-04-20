@@ -29,7 +29,7 @@ export default function Navbar() {
         </Link>
 
         <Link to="/create-post" onClick={() => setOpen(false)}>
-          <button className="nav-text">Report Item</button>
+          <button className="nav-text">Create Post</button>
         </Link>
 
         {/* <Link to="/signin" onClick={() => setOpen(false)}>

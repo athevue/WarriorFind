@@ -7,12 +7,14 @@
     flex-direction: column;
     gap: 10px;
     transition: 0.2s ease;
+    max-height: none;
   }
-  
+/*   
   .item-card:hover {
     transform: translateY(-4px);
   }
-  
+*/
+
   /* top row */
   .item-card-top {
     display: flex;
