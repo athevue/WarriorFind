@@ -35,7 +35,7 @@ export default function SignIn() {
         </div>
 
         <br />
-        <button type="submit">Sign In</button>
+        <button type="submit-btn">Sign In</button>
       </form>
       
     </div>
