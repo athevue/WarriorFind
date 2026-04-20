@@ -1,37 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemCard from "./components/home/ItemCard";
 import "./Browse.css";
 
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebase";
+
 const Browse = () => {
-  const items = [
-    {
-      id: 1,
-      type: "lost",
-      name: "Black Backpack",
-      location: "WSU Library",
-      description: "Left in study area around 3 PM. Has laptop inside.",
-      category: "Electronics",
-      date: "Apr 18, 2026",
-    },
-    {
-      id: 2,
-      type: "found",
-      name: "AirPods Case",
-      location: "Student Center",
-      description: "Found near seating area, turned into front desk.",
-      category: "Accessories",
-      date: "Apr 17, 2026",
-    },
-    {
-      id: 3,
-      type: "lost",
-      name: "Car Keys",
-      location: "Parking Garage A",
-      description: "Lost near level 2 entrance ramp.",
-      category: "Keys",
-      date: "Apr 16, 2026",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  const getItems = async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "posts"));
+
+      const data = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+
+      setItems(data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   return (
     <div className="browse-page">
@@ -40,7 +34,7 @@ const Browse = () => {
 
         <div className="features-grid">
           {items.map((item) => (
-            <ItemCard key={item.id} item={item} />
+            <ItemCard key={item.id} post={item} />
           ))}
         </div>
       </div>
