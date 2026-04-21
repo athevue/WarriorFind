@@ -15,9 +15,8 @@ function Profile() {
     const [loading, setLoading] = useState(true);
     const userId = 1 //temporary constant, use id of signed in user instead
 
-    const [points] = useState(20); // fake data for now
 
-    const badges = getBadges(points);
+   
 
     const getUser = async () => {
         const user = await getDocs(query(collection(db, "users"), where("user_id", "==", userId)));
@@ -60,6 +59,9 @@ function Profile() {
             <h1>loading...</h1>
         );
 
+        const points = user.points || 0;
+        const badges = getBadges(points);
+
   return (
     <div
         className="home-page profile-container"
@@ -69,7 +71,7 @@ function Profile() {
             <div className="pin"></div>
             <h1 className='name'>{user.first_name} {user.last_name}</h1>
 
-            <p className='points'><strong>Points:</strong> {points}</p>
+            <p className='Points:'><strong>Total Points:</strong> {points}</p>
 
             <h2 className='badges-title'>Badges</h2>
 
@@ -78,7 +80,7 @@ function Profile() {
             ) : (
               <ul className='badges-list'>
                 {badges.map((badge, index) => (
-                  <li className='badge' key={index}>{badge}</li>
+                  <li className='badge' key={index}>🏅 {badge}</li>
                 ))}
               </ul>
             )}
