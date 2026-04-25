@@ -1,0 +1,16 @@
+.browse-page {
+    padding: 60px 20px;
+    background: #f7f8f7;
+    min-height: 100vh;
+  }
+  
+  .browse-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .browse-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: left;
+  }
