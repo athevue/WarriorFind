@@ -71,7 +71,7 @@ function Profile() {
             <div className="pin"></div>
             <h1 className='name'>{user.first_name} {user.last_name}</h1>
 
-            <p className='Points:'><strong>Total Points:</strong> {points}</p>
+            <p className='points'><strong>Total Points:</strong> {points}</p>
 
             <h2 className='badges-title'>Badges</h2>
 

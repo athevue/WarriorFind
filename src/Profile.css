@@ -15,6 +15,13 @@ li.badge {
   margin: 0 auto;
 }
 
+.points {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #093f39;
+    font-weight: 600;
+}
+
 
 .profile-container {
     padding: 64px;
