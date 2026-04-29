@@ -16,6 +16,8 @@ function Profile() {
     const userId = 1 //temporary constant, use id of signed in user instead
 
 
+   
+
     const getUser = async () => {
         const user = await getDocs(query(collection(db, "users"), where("user_id", "==", userId)));
         setUser(user.docs[0].data());

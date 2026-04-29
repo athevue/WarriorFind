@@ -31,27 +31,27 @@ function Post() {
     const imageUrls = [];
 
     try {
-      // for (const image of images) {
-      //   //define and get file path
-      //   const imagePath = `images/${Date.now()}-${image.name}`;
-      //   const imageRef = ref(storage, imagePath);
+      for (const image of images) {
+        //define and get file path
+        const imagePath = `images/${Date.now()}-${image.name}`;
+        const imageRef = ref(storage, imagePath);
 
-      //   // upload image
-      //   await uploadBytes(imageRef, image);
+        // upload image
+        await uploadBytes(imageRef, image);
 
-      //   // get URL
-      //   const downloadUrl = await getDownloadURL(imageRef);
-      //   imageUrls.push(downloadUrl);
-      // };
+        // get URL
+        const downloadUrl = await getDownloadURL(imageRef);
+        imageUrls.push(downloadUrl);
+      };
 
-      // await addDoc(collection(db, "posts"), {
-      //   item: formData.get("item"),
-      //   caption: formData.get("caption"),
-      //   location: formData.get("location"),
-      //   user_id: user,
-      //   image_urls: imageUrls,
-      //   created_at: Date.now(),
-      // });
+      await addDoc(collection(db, "posts"), {
+        item: formData.get("item"),
+        caption: formData.get("caption"),
+        location: formData.get("location"),
+        user_id: user,
+        image_urls: imageUrls,
+        created_at: Date.now(),
+      });
 
       //display success message
       setFeedbackMessage("Post created successfully!")

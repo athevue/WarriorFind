@@ -46,9 +46,14 @@ export default function Navbar() {
         </Link>
 
         {user && (
-        <Link to="/create-post" onClick={() => setOpen(false)}>
-          <button className="nav-text">Create Post</button>
-        </Link>
+          <>
+            <Link to="/create-post" onClick={() => setOpen(false)}>
+              <button className="nav-text">Create Post</button>
+            </Link>
+            <Link to="/Profile" onClick={() => setOpen(false)}>
+              <button className="nav-text">My Profile</button>
+            </Link>
+          </>
         )}
 
         {/* <Link to="/signin" onClick={() => setOpen(false)}>
