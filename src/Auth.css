@@ -1,0 +1,146 @@
+.auth-page {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f9f8;
+  padding: 90px 20px 40px;
+  box-sizing: border-box;
+}
+
+.auth-page .auth-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 52px 70px;
+  border-radius: 18px;
+  border: 1px solid #e5e9e7;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.auth-page .auth-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #06463d;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.auth-page .auth-subtitle {
+  text-align: center;
+  color: #667;
+  font-size: 16px;
+  margin: 0 0 36px;
+}
+
+.auth-page .auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-page .auth-field {
+  width: 100%;
+}
+
+.auth-page .auth-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2f2c;
+}
+
+.auth-page .auth-field input {
+  width: 100%;
+  height: 52px;
+  padding: 13px 14px;
+  border: 1px solid #cfd8d5;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  background: white;
+}
+
+.auth-page .auth-field input:focus {
+  border-color: #06463d;
+  box-shadow: 0 0 0 3px rgba(6, 70, 61, 0.12);
+}
+
+.auth-page .auth-button {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: #06463d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.auth-page .auth-button:hover {
+  background: #05382f;
+}
+
+/*Success/error message*/
+.auth-page .auth-message {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.auth-page .auth-message.success {
+  background: #e8f7ef;
+  color: #146c43;
+  border: 1px solid #b7e4c7;
+}
+
+.auth-page .auth-message.error {
+  background: #fdecec;
+  color: #b42318;
+  border: 1px solid #f5c2c7;
+}
+
+/*Link*/
+.auth-page .auth-switch {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.auth-page .auth-switch a {
+  color: #06463d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-page .auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/*forgot password*/
+.auth-page .auth-forgot {
+  text-align: right;
+  margin-top: -10px;
+}
+
+.auth-page .auth-forgot a {
+  color: #06463d;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-page .auth-forgot a:hover {
+  text-decoration: underline;
+}

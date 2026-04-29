@@ -1,0 +1,27 @@
+.logout-banner {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  min-width: 320px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 2000;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.logout-banner.success {
+  background: #e8f7ef;
+  color: #146c43;
+  border: 1px solid #b7e4c7;
+}
+
+.logout-banner.error {
+  background: #fdecec;
+  color: #b42318;
+  border: 1px solid #f5c2c7;
+}

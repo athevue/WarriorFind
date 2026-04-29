@@ -11,6 +11,7 @@ import SignUp from './Signup';
 import Browse from './Browse';
 import Feed from './Feed';
 import Post from './createPost';
+import ForgotPassword from './ForgotPassword'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/browse" element={<Browse />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/create-post" element={<Post />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
     </BrowserRouter>
