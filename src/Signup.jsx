@@ -27,10 +27,12 @@ export default function SignUp(){
 
             const user = userCred.user;
 
-            await setDoc(doc(db,"users", user.uid),{
-                firstName,
-                lastName,
+            await setDoc(doc(db,"users", user.uid), {
+                first_name: firstName,
+                last_name: lastName,
                 email,
+                points: 0,
+                badges: [],
                 createdAt: new Date(),
             });
 
