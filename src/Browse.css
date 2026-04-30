@@ -48,3 +48,27 @@
   flex-direction: column;
   width: fit-content;
 }
+.browse-search-wrapper {
+  position: relative;
+}
+
+.browse-search-wrapper input {
+  padding-right: 35px;
+}
+
+.browse-clear-button {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.browse-clear-button:hover {
+  color: #111;
+  background: none;
+}
