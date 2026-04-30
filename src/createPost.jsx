@@ -1,6 +1,6 @@
 import './createPost.css'
 import { useState } from 'react';
-import { db, storage } from './firebase' 
+import { db, storage, auth } from './firebase' 
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import Popup from 'reactjs-popup';
@@ -48,7 +48,7 @@ function Post() {
         item: formData.get("item"),
         caption: formData.get("caption"),
         location: formData.get("location"),
-        user_id: user,
+        user_id: auth.currentUser.uid,
         image_urls: imageUrls,
         created_at: Date.now(),
       });
@@ -84,7 +84,7 @@ function Post() {
     document.getElementsByName("caption")[0].value = "";
   }
 
-  const user = 1;
+  //const user = 1;
   
   return (
     <div id='container'>
