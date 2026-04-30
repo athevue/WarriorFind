@@ -5,7 +5,7 @@ import { collection, getDocs, query, where, doc, deleteDoc, getDoc } from "fireb
 import './Profile.css';
 import './Feed.css';
 import ImageCarousel from './components/imageCarousel';
-import corkboard from "./assets/cork-board.jpg.avif";
+import corkboard from "./assets/Cork-board.jpg.avif";
 import EditPostPopup from './components/EditPostPopup';
 import { getBadges } from "./BadgeSystem";
 
