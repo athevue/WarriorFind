@@ -37,11 +37,14 @@ function EditPostPopup(props) {
         }
 
         try {
-            imageUrls.forEach(async url => {
-                if (!(url in post.image_urls)) {
+            console.log(imageUrls);
+            
+            post.image_urls.forEach(async url => {
+                if (!(imageUrls.includes(url))) {
                     //delete image
                     const imageRef = ref(storage, url);
                     await deleteObject(imageRef);
+                    console.log("deleting ", url)
                 }
             });
 

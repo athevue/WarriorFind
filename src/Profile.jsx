@@ -3,7 +3,6 @@ import { auth, db } from './firebase';
 import { collection, getDocs, query, where, doc, deleteDoc, getDoc } from "firebase/firestore";
 import './Profile.css';
 import './Feed.css';
-import './Home.css';
 import ImageCarousel from './components/imageCarousel';
 import corkboard from "./assets/cork-board.jpg.avif";
 import EditPostPopup from './components/EditPostPopup';
@@ -74,7 +73,7 @@ function Profile() {
 
     return (
         <div
-            className="home-page profile-container"
+            className="profile-container"
             style={{ backgroundImage: `url(${corkboard})` }}
         >
             <div className='post name-container'>
