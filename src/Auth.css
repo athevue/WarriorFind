@@ -87,7 +87,14 @@
 .auth-page .auth-button:hover {
   background: #05382f;
 }
+.auth-page .auth-row {
+  display: flex;
+  gap: 16px;
+}
 
+.auth-page .auth-row .auth-field {
+  flex: 1;
+}
 /*Success/error message*/
 .auth-page .auth-message {
   margin-top: 18px;
@@ -143,4 +150,22 @@
 
 .auth-page .auth-forgot a:hover {
   text-decoration: underline;
+}
+
+/*password req thanks*/
+.auth-page .password-reqs {
+  margin-top: -12px;
+  font-size: 13px;
+}
+
+.auth-page .password-reqs p {
+  margin: 4px 0;
+}
+
+.auth-page .req-pass {
+  color: #146c43;
+}
+
+.auth-page .req-fail {
+  color: #777;
 }

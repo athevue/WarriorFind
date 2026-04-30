@@ -12,12 +12,35 @@ export default function SignUp(){
     const [email,setEmail] = useState("");
     const [password,setPassword]=useState("");
     const [message, setMessage] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const navigate = useNavigate();
+
+    //password requirements check 
+    const passwordReqs = [
+        { label: "At least 6 characters", test: (pass) => pass.length >= 6 },
+        { label: "At least one uppercase letter", test: (pass) => /[A-Z]/.test(pass) },
+        { label: "At least one lowercase letter", test: (pass) => /[a-z]/.test(pass) },
+        { label: "At least one number", test: (pass) => /\d/.test(pass) },
+        { label: "One special character", test: (pass) => /[^A-Za-z0-9]/.test(pass) },
+    ];
+
+    const reqCheck = passwordReqs.map((req) => req.test(password));
+    const reqCheckPass = reqCheck.every(Boolean);
+    const passwordMatch = password === confirmPassword;
 
     const handleSignUp = async(e) =>{
         e.preventDefault();
         setMessage("");
+        if (!reqCheckPass) {
+            setMessage("Password does not meet all requirements.");
+            return;
+        }
+
+        if (!passwordMatch) {
+            setMessage("Passwords do not match.");
+            return;
+        }
         try{
             const userCred = await createUserWithEmailAndPassword(
                 auth,
@@ -42,8 +65,9 @@ export default function SignUp(){
             setLastName("");
             setEmail("");
             setPassword("");
+            setConfirmPassword("");
 
-             setTimeout(()=>{
+            setTimeout(()=>{
                 navigate("/");
             }, 1000);
 
@@ -62,14 +86,24 @@ export default function SignUp(){
                 <p className="auth-subtitle">Join WarriorFind to post and browse items.</p>
 
                 <form className="auth-form" onSubmit={handleSignUp}>
-                    <div className="auth-field">
-                        <label>First Name</label>
-                        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                    </div>
+                    <div className="auth-row">
+                        <div className="auth-field">
+                            <label>First Name</label>
+                            <input
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            />
+                        </div>
 
-                    <div className="auth-field">
-                        <label>Last Name</label>
-                        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <div className="auth-field">
+                            <label>Last Name</label>
+                            <input
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            />
+                        </div>
                     </div>
 
                     <div className="auth-field">
@@ -79,7 +113,29 @@ export default function SignUp(){
 
                     <div className="auth-field">
                         <label>Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input 
+                            type="password" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                        />
+                    </div>
+                    <div className="auth-field">
+                        <label>Confirm Password</label>
+                        <input
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="password-reqs">
+                        {passwordReqs.map((req, index) => (
+                            <p
+                            key={index}
+                            className={reqCheck[index] ? "req-pass" : "req-fail"}
+                            >
+                            {reqCheck[index] ? "✓" : "○"} {req.label}
+                            </p>
+                        ))}
                     </div>
 
                     <button className="auth-button" type="submit">Sign Up</button>
