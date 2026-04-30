@@ -61,3 +61,22 @@ li.badge {
     background-color: #333;
     color: white
 }
+.profile-status {
+  width: fit-content;
+  margin: 8px 0 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.profile-status.lost {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.profile-status.found {
+  background: #e8f7ef;
+  color: #146c43;
+}
