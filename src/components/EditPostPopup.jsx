@@ -13,6 +13,7 @@ function EditPostPopup(props) {
     const [imageUrls, setImageUrls] = useState(post.image_urls);
     const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
     const [submitFeedback, setSubmitFeedback] = useState("");
+    const [postStatus, setPostStatus] = useState(post.status || "lost");
     const mainRef = useRef();
 
     const openMainPopup = () => mainRef.current.open();
@@ -21,6 +22,7 @@ function EditPostPopup(props) {
     const handleClose = () => {
         //reset the popup to its original state
         setImageUrls(post.image_urls);
+        setPostStatus(post.status || "lost");
         closeMainPopup();
     }
 
@@ -47,7 +49,8 @@ function EditPostPopup(props) {
                 item: document.getElementsByName("item")[0].value,
                 caption: document.getElementsByName("caption")[0].value,
                 location: document.getElementsByName("location")[0].value,
-                image_urls: imageUrls
+                image_urls: imageUrls,
+                status: postStatus
             });
 
             setShowSubmitFeedback(true);
@@ -101,6 +104,25 @@ function EditPostPopup(props) {
 
                 <label className='edit-post-popup-label'>Caption</label>
                 <input className='edit-post-popup-input' name='caption' defaultValue={post.caption} />
+
+                <label className="edit-post-popup-label">Status</label>
+                <div className="edit-post-popup-status">
+                <button
+                    type="button"
+                    className={postStatus === "lost" ? "status-active" : ""}
+                    onClick={() => setPostStatus("lost")}
+                >
+                    Lost
+                </button>
+
+                <button
+                    type="button"
+                    className={postStatus === "found" ? "status-active" : ""}
+                    onClick={() => setPostStatus("found")}
+                >
+                    Found
+                </button>
+                </div>
 
                 <div className='edit-post-popup-button-container'>
                     <button className='edit-post-popup-button' onClick={() => {

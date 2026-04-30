@@ -108,6 +108,9 @@ function Profile() {
                                 <EditPostPopup postObj={postObj} />
                             </div>
                             <h1 className='item-name'>{post.item}</h1>
+                            <p className={`profile-status ${post.status || "lost"}`}>
+                                {post.status || "lost"}
+                            </p>
 
                             <ImageCarousel urls={post.image_urls} />
 

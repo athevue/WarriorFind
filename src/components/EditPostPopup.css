@@ -97,3 +97,23 @@
     80% {opacity: 100;}
     100% {opacity: 0;}
 }
+
+.edit-post-popup-status {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.edit-post-popup-status button {
+  padding: 10px 18px;
+  border: 1px solid #06463d;
+  border-radius: 8px;
+  background: white;
+  color: #06463d;
+  cursor: pointer;
+}
+
+.edit-post-popup-status .status-active {
+  background: #06463d;
+  color: white;
+}
