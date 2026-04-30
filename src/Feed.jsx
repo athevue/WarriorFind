@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import './Feed.css'
-import corkboard from "./assets/cork-board.jpg.avif";
+import corkboard from "./assets/Cork-board.jpg.avif";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from './firebase';
 import ImageCarousel from './components/imageCarousel';

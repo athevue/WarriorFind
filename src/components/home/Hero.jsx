@@ -1,4 +1,4 @@
-import corkboard from "../../assets/cork-board.jpg.avif";
+import corkboard from "../../assets/Cork-board.jpg.avif";
 import "./Hero.css";
 
 export default function Hero() {
