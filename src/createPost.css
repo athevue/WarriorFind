@@ -58,6 +58,7 @@ input[type="text"] {
     border-radius: 10px;
     text-align: center;
     font-size: medium;
+    cursor: pointer;
 }
 
 button[type="submit"] {

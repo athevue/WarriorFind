@@ -81,7 +81,7 @@ const Browse = () => {
           <div className="browse-search-container">
             {/* search by item name */}
             <div className="browse-search-wrapper">
-            <input id="search" type="text" placeholder="Search items by name" value={search} onChange={(e) =>handleFilter(e.target.value)} />
+            <input id="search" type="text" placeholder="Search items" value={search} onChange={(e) =>handleFilter(e.target.value)} />
             {(search || startDate.getTime() !== new Date("2026-01-01").getTime() || endDate.toDateString() !== new Date().toDateString()) &&  (
               <button
                 type="button"
