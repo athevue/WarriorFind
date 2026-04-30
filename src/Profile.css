@@ -22,21 +22,25 @@ li.badge {
     font-weight: 600;
 } 
 
-
 .profile-container {
     padding: 64px;
     width: 100vw;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+    background-repeat: no-repeat;
+    height: fit-content;
+    background-size: cover;
 }
 
 .name-container {
-    margin-top: 15px;
     padding: 10px;
     height: fit-content;
     font-family: caveat;
     font-size: larger;
+    margin: 15px auto;
+    max-width: 350px;
+    min-width: 350px;
 }
 
 .profile-button-container {
