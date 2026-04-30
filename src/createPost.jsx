@@ -13,6 +13,7 @@ function Post() {
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   const feedbackPopupDuration = 1000; // miliseconds for feedback popup to show
+  const [postStatus, setPostStatus] = useState("lost");  // can be "lost" or "found", default to lost
 
   const handleImages = (e) => {
     const images = Array.from(e.target.files);
@@ -51,6 +52,7 @@ function Post() {
         user_id: auth.currentUser.uid,
         image_urls: imageUrls,
         created_at: Date.now(),
+        status: postStatus
       });
 
       //display success message
@@ -78,6 +80,7 @@ function Post() {
     setImages([]);
     setButtonText(defaultButtonText);
     setFeedbackMessage("");
+    setPostStatus("lost"); // Default lost status when creating a new post
 
     document.getElementsByName("item")[0].value = "";
     document.getElementsByName("location")[0].value = "";
@@ -105,7 +108,7 @@ function Post() {
         <input id='files' name='images' type='file' multiple accept='image/*' onChange={handleImages} required hidden />
         <p>Choose up to 3</p>
 
-        <label>Lost Item: </label>
+        <label>Item Name: </label>
         <input name='item' type="text" placeholder='ex: Green hat' required />
         
         <label>Location: </label>
@@ -113,6 +116,25 @@ function Post() {
         
         <label>Caption (optional): </label>
         <textarea name='caption' placeholder='Lost hat' />
+
+        <label>Status (Lost or Found):</label>
+        <div className="create-post-status">
+          <button
+            type="button"
+            className={postStatus === "lost" ? "status-active" : ""}
+            onClick={() => setPostStatus("lost")}
+          >
+            Lost
+          </button>
+
+          <button
+            type="button"
+            className={postStatus === "found" ? "status-active" : ""}
+            onClick={() => setPostStatus("found")}
+          >
+            Found
+          </button>
+        </div>
 
         <button type='submit'>{buttonText}</button>
       </form>
