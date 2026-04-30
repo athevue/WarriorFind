@@ -109,11 +109,11 @@ export default function ItemCard({ post }) {
         </div>
       </div>
 
-      <div className="item-footer">
+      {/* <div className="item-footer">
         <button className="contact-btn">
           Contact about this item →
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
