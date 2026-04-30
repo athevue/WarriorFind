@@ -73,7 +73,8 @@ function EditPostPopup(props) {
             setSubmitFeedback("Post edited successfully!")
             setTimeout(() => {
                 setShowSubmitFeedback(false);
-            }, 2000);
+                window.location.reload();
+            }, 1500);
 
             closeMainPopup();
         } catch(err) {
