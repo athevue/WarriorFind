@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from './firebase';
+import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where, doc, deleteDoc, getDoc } from "firebase/firestore";
 import './Profile.css';
 import './Feed.css';
@@ -9,10 +10,23 @@ import EditPostPopup from './components/EditPostPopup';
 import { getBadges } from "./BadgeSystem";
 
 function Profile() {
+    const [userId, setUserId] = useState(null);
     const [user, setUser] = useState();
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const userId = auth.currentUser?.uid;
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setUserId(currentUser.uid);
+            } else {
+                setUserId(null);
+                setLoading(false);
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     const getUser = async () => {
         if (!userId) return;
@@ -26,8 +40,6 @@ function Profile() {
 
     const getPosts = async () => {
         if (!userId) return;
-
-        setPosts([]);
 
         try {
             const fetchedPosts = await getDocs(
@@ -51,6 +63,8 @@ function Profile() {
     };
 
     useEffect(() => {
+        if (!userId) return;
+
         const loadProfile = async () => {
             await getUser();
             await getPosts();
@@ -62,6 +76,10 @@ function Profile() {
 
     if (loading) {
         return <h1>loading...</h1>;
+    }
+
+    if (!userId) {
+        return <h1>Please sign in to view your profile.</h1>;
     }
 
     if (!user) {
@@ -106,7 +124,9 @@ function Profile() {
                                 <button className='post-edit-button' onClick={() => deletePost(postObj.id)}>Delete</button>
                                 <EditPostPopup postObj={postObj} />
                             </div>
+
                             <h1 className='item-name'>{post.item}</h1>
+
                             <p className={`profile-status ${post.status || "lost"}`}>
                                 {post.status || "lost"}
                             </p>

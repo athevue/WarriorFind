@@ -1,10 +1,10 @@
-import React, { use, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './EditPostPopup.css'
 import { deleteObject } from 'firebase/storage';
-import { db, storage } from '../firebase';
-import { doc, updateDoc } from 'firebase/firestore';
+import { db, storage, auth } from '../firebase';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 import { ref } from 'firebase/storage';
 
 function EditPostPopup(props) {
@@ -16,17 +16,15 @@ function EditPostPopup(props) {
     const [postStatus, setPostStatus] = useState(post.status || "lost");
     const mainRef = useRef();
 
-    const openMainPopup = () => mainRef.current.open();
     const closeMainPopup = () => mainRef.current.close();
 
     const handleClose = () => {
-        //reset the popup to its original state
         setImageUrls(post.image_urls);
         setPostStatus(post.status || "lost");
         closeMainPopup();
     }
 
-    const editPost = (postId) => {
+    const editPost = async (postId) => {
         if (imageUrls.length === 0) {
             setSubmitFeedback("Post must have at least one image");
             setShowSubmitFeedback(true);
@@ -37,8 +35,6 @@ function EditPostPopup(props) {
         }
 
         try {
-            console.log(imageUrls);
-            
             post.image_urls.forEach(async url => {
                 if (!(imageUrls.includes(url))) {
                     //delete image
@@ -48,13 +44,30 @@ function EditPostPopup(props) {
                 }
             });
 
-            updateDoc(doc(db, "posts", postId), {
+            await updateDoc(doc(db, "posts", postId), {
                 item: document.getElementsByName("item")[0].value,
                 caption: document.getElementsByName("caption")[0].value,
                 location: document.getElementsByName("location")[0].value,
                 image_urls: imageUrls,
                 status: postStatus
             });
+
+            if ((post.status || "lost") !== "found" && postStatus === "found") {
+                const currentUser = auth.currentUser;
+
+                if (currentUser) {
+                    const userRef = doc(db, "users", currentUser.uid);
+                    const userSnap = await getDoc(userRef);
+
+                    if (userSnap.exists()) {
+                        const currentPoints = userSnap.data().points || 0;
+
+                        await updateDoc(userRef, {
+                            points: currentPoints + 10
+                        });
+                    }
+                }
+            }
 
             setShowSubmitFeedback(true);
             setSubmitFeedback("Post edited successfully!")
@@ -75,7 +88,6 @@ function EditPostPopup(props) {
     }
 
     const removeImage = (urlToRemove) => {
-        //remove the image from screen - does NOT delete in database
         setImageUrls(prev => prev.filter(url => url != urlToRemove))
     }
 
@@ -110,33 +122,30 @@ function EditPostPopup(props) {
 
                 <label className="edit-post-popup-label">Status</label>
                 <div className="edit-post-popup-status">
-                <button
-                    type="button"
-                    className={postStatus === "lost" ? "status-active" : ""}
-                    onClick={() => setPostStatus("lost")}
-                >
-                    Lost
-                </button>
+                    <button
+                        type="button"
+                        className={postStatus === "lost" ? "status-active" : ""}
+                        onClick={() => setPostStatus("lost")}
+                    >
+                        Lost
+                    </button>
 
-                <button
-                    type="button"
-                    className={postStatus === "found" ? "status-active" : ""}
-                    onClick={() => setPostStatus("found")}
-                >
-                    Found
-                </button>
+                    <button
+                        type="button"
+                        className={postStatus === "found" ? "status-active" : ""}
+                        onClick={() => setPostStatus("found")}
+                    >
+                        Found
+                    </button>
                 </div>
 
                 <div className='edit-post-popup-button-container'>
-                    <button className='edit-post-popup-button' onClick={() => {
-                        handleClose();
-                    }}>Cancel</button>
-                    <button className='edit-post-popup-button' onClick={() => {
-                        editPost(postObj.id);
-                    }}>Submit</button>
+                    <button className='edit-post-popup-button' onClick={handleClose}>Cancel</button>
+                    <button className='edit-post-popup-button' onClick={() => editPost(postObj.id)}>Submit</button>
                 </div>
             </div>
         </Popup>
+
         <Popup nested open={showSubmitFeedback} className='edit-post-popup-feedback' position={"top center"}>
             <h2>{submitFeedback}</h2>
         </Popup>

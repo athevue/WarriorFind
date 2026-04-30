@@ -72,3 +72,44 @@
   color: #111;
   background: none;
 }
+
+@media (max-width: 768px) {
+  .browse-page {
+    padding: 40px 15px;
+  }
+
+  .browse-container h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .browse-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .browse-search-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .browse-search-container input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .browse-date-container {
+    width: 100%;
+  }
+
+  .browse-search-wrapper input {
+    width: 100%;
+  }
+
+  .browse-clear-button {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

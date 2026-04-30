@@ -58,6 +58,7 @@ input[type="text"] {
     border-radius: 10px;
     text-align: center;
     font-size: medium;
+    cursor: pointer;
 }
 
 button[type="submit"] {
@@ -84,4 +85,32 @@ textarea {
     width: fit-content;
     text-align: center;
     animation: fadePopup 1s;
+}
+
+.create-post-status {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 15px 0;
+}
+
+.create-post-status button {
+    all: unset;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.create-post-status button:hover {
+    background-color: #e4e4e4;
+}
+
+.create-post-status .status-active {
+    background-color: #093f39;
+    color: white;
+    border-color: #093f39;
 }

@@ -93,3 +93,54 @@
   .contact-btn:hover {
     text-decoration: underline;
   }
+
+  .comments-section {
+  margin-top: 16px;
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+}
+
+.comments-section h4 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #093f39;
+}
+
+.no-comments {
+  font-size: 13px;
+  color: #777;
+}
+
+.comment {
+  background: #f7f7f7;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.comment p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.comment-form button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #093f39;
+  color: white;
+  cursor: pointer;
+}
